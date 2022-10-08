@@ -1,0 +1,4 @@
+ps
+echo luego
+ls -l -a 
+echo adiós
