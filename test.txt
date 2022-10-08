@@ -2,3 +2,6 @@ ps
 echo luego
 ls -l -a 
 echo adiós
+echo hola de nuevo
+
+echo BYE!
