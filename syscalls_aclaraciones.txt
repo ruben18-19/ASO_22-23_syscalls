@@ -1,0 +1,21 @@
+
+    TODAS las operaciones de lectura o escritura deben realizarse con las llamadas al sistema read() y write(). 
+    NO se admite el uso de funciones de biblioteca como fgetc, fgets, getc, getchar, scanf, fscanf, sscanf, vscanf, vsscanf, vfscanf o similares. 
+    Sí se admite printf o fprintf siempre y cuando su uso se limite a mostrar mensajes en la consola.
+    
+    Todas las funciones de manejo de cadenas presuponen que al final de la secuencia de bytes hay un carácter de control '\0', 
+    Cuando se lee con read(), no leemos cadenas sino secuencias de bytes. Por tanto, no se cumple la condicion anterior. 
+    Eso nos impide utilizar funciones de manejo de cadenas como strlen, strcat, strncat, strcpy o strncpy con las secuencias de bytes que devuelve read(). 
+    Sólo en el caso de que estéis seguros de que trabajáis con cadenas, podéis usar estas funciones, aunque desaconsejamos strcat y strcpy dado 
+        que no comprueban que la cadena destino tiene espacio suficiente para almacenar la cadena origen. 
+        Recordad que read() devuelve el número de bytes leídos. Ese número nos dice exactamente qué cantidad de información hay que procesar.
+    
+    Si necesitáis copiar N bytes desde un buffer origen hasta un buffer destino, podéis emplear memcpy o memmove que obligan a indicar el número de bytes.
+    
+    Utilizar la función de biblioteca memset() para inicializar una zona de memoria es admisible. 
+    Sin embargo, hacerlo antes de cada operación de lectura con read() es extremadamente ineficiente por lo que se prohibe su uso en este caso. 
+    Si necesitáis hacerlo para que vuestro programa funcione, significa que tenéis una fuga de memoria o simplemente estáis usando funciones de biblioteca 
+        de manejo de cadenas como las listadas más arriba, y necesitáis que haya un carácter '\0' al final de la secuencia de bytes. 
+        Recordad que el número de bytes válidos que contiene un buffer viene siempre dado por el valor que devuelve read(). 
+    Por tanto, no hace falta "resetear" un buffer antes de usarlo. 
+    Basta con llevar la cuenta de cuántos bytes válidos contiene en cada momento.

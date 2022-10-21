@@ -1,0 +1,6 @@
+ps
+echo luego
+ls -la
+ls
+echo BYE
+echo BYE

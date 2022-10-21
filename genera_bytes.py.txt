@@ -1,0 +1,26 @@
+Hola:
+
+En la validación de la entrega de la tarea de exec_lines.c con asosystest.py se utiliza genera_bytes.py. 
+genera_bytes.py es un script escrito en Python que genera secuencias de bytes aleatorios. 
+En concreto, se utiliza en el test "genera_bytes.py -n 129 | exec_lines" para ilustrar cómo se tiene que comportar exec_lines cuando lee de la entrada estándar 129 bytes y no encuentra ningún carácter de control '\n' (la salida generada por genera_bytes.py cumple dicha condición).
+
+El script genera_bytes.py funciona sin problema alguno en los equipos de los laboratorios (Ubuntu 22.04 LTS) y, en general, en cualquier otra distribución que tenga una versión reciente de Python 3.9+. 
+Si no es vuestro caso, es posible que veáis el siguiente error:
+
+./genera_bytes.py -n 129
+Traceback (most recent call last):
+  File "./genera_bytes.py", line 18, in <module>
+    os.write(sys.stdout.fileno(), random.randbytes(args.numbytes % args.tamwrites))
+AttributeError: module 'random' has no attribute 'randbytes'
+
+Para poder ejecutar el test, os hemos dejado la salida de genera_bytes.py -n 129 en un archivo llamado 129B que podéis descargar del siguiente enlace: https://umubox.um.es/index.php/s/dzXmACS0mY3349l. 
+A continuación, basta con teclear "cat 129B | exec_lines" para poder ejecutar el test manualmente.
+
+En cualquier caso, os recomendamos que verifiquéis que todos los tests funcionan en un equipo de los laboratorios, o cualquier otro con Ubuntu 22.04 LTS, antes de realizar la entrega.
+
+En la siguiente tarea necesitaréis generar un archivo de 100M con genera_bytes.py que también podéis descargar del siguiente enlace: https://umubox.um.es/index.php/s/zXmYka6t7I3CthU.
+
+Por último, os recordamos que si habéis decidido hacer las tareas un entorno diferente al de los laboratorios de prácticas, es vuestra responsabilidad tanto instalar el software necesario como resolver este tipo de incidencias.
+
+Saludos.
+

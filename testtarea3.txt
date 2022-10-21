@@ -1,0 +1,1 @@
+touch test ; echo -e "ls test\nls test" | ./exec_lines
