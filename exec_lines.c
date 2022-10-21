@@ -26,7 +26,7 @@ int     processArguments(int argc, char **argv);
 
 /* MAIN AUX FUNCTIONS */
 void    checkLineSize(int);
-int     splitInputInCommands(char *,int,char **,int *,int *);
+char * splitInputInCommands(char *input, int inputLength, char *commands[], int *startOfNextCommand, int *startOfUnprocessedChars, int *commandsNo);
 void    processLineCommand(char *);
 
 /* CHILD FUNCTIONS */
@@ -35,35 +35,30 @@ int     splitCommand(char *command, char *tokens[]);
 
 /* MAIN */
 int main(int argc, char *argv[]) {
-
-    // printf("flag: %d, n: %d, s: \"%s\"", flag, n, s);
-    // for (int i = optind; i < argc; i++)
-    //     printf(", param%d: \"%s\"", i - optind, argv[i]);
-    // printf("\n");
-
-    // char bufferAcumulativo[129] = "";      // MAX_LINE_SIZE + '\0'
     char *bufferAcumulativo = (char *)malloc((MAX_LINE_SIZE+1)*sizeof(char));      // MAX_LINE_SIZE + '\0'
     char buffer[16] = "";
     ssize_t bytesRead = 0;
     ssize_t totalBytesReadPerLine = 0;
     char **commands = (char **)malloc(MAX_LINES_IN_BUFFER*sizeof(char *));     //reservamos espacio para MAX_LINES_IN_BUFFER char * (strings)
-    int startOfNextOrder = 0;      // indica hasta qué posición del buffer hay carácteres válidos
-    // este puntero se va moviendo y siempre apunta al comienzo de la siguiente orden
-                                    // es decir, a bufferAcumulativo[0].
-                                    // hay que actualizar bufferAcumulativo después de cada llamada a fork
-                                    // antes de cada llamada a fork(), hay que hacer una copia de las órdenes para
+    int startOfNextCommand = 0;
     int startOfUnprocessedChars = 0;
     int currentPosition = 0;
     int lineFound = 0;
     int round = 0;
     int absCommandNo = 1;
-    int nProc = 2;
-    int nProcRunning = 0;
+    int commandsNo;
+    int nProc;
+    int freeThreads;
+    // int nProc = 2;
+    // int nProcRunning = 0;
 
     // TODO - salir con fallo dentro de la función?
-    // if ((nProc = processArguments(argc,argv)) == -1) {
-    //     exit(EXIT_FAILURE);
-    // }
+    if ((nProc = processArguments(argc,argv)) == -1) {
+        exit(EXIT_FAILURE);
+    }
+
+    printf("freeThreads = %i\n",nProc);
+    freeThreads = nProc;
 
     while ((bytesRead = read(STDIN_FILENO,buffer,MAX_BYTES_PER_READ))) {
         // ERROR READING
@@ -72,29 +67,41 @@ int main(int argc, char *argv[]) {
             exit(EXIT_FAILURE);
         }
         
-        printf("ROUND %d\n",round++);
+        // printf("--------------------------------------");
+        // printf("ROUND %d\n",round++);
 
         // si superamos el límite de 128 bytes/línea => ERR; se sale con EXIT_FAILURE dentro de la función
         checkLineSize(totalBytesReadPerLine += bytesRead);
 
         // copiamos en bufferAcumulativo los bytes leídos en esta iteración
-        // puede que haya datos válidos en este buffer, esto está indicado por startOfNextOrder
+        // puede que haya datos válidos en este buffer, esto está indicado por startOfNextCommand
         // printf("bufferAcumulativo=%s; buffer=%s\n",bufferAcumulativo,buffer);
-        memcpy(bufferAcumulativo+startOfNextOrder,buffer,bytesRead);
-        // printf("bufferAcumulativo=%s; buffer=%s\n",bufferAcumulativo,buffer);
+        memcpy(bufferAcumulativo+startOfNextCommand,buffer,bytesRead);
+        // printf("bufferAcumulativo='%s'; buffer='%s'\n",bufferAcumulativo,buffer);
 
-        startOfNextOrder += bytesRead;
-        int commandsNo = splitInputInCommands(bufferAcumulativo, startOfNextOrder, commands, &startOfNextOrder, &startOfUnprocessedChars);
-        for (int i=0; i<commandsNo; i++) {
-            printf("\tCOMMANDS[%d] = %s; ",absCommandNo,commands[i]);
-        }
-        printf("\n");
+        startOfNextCommand += bytesRead;
+        bufferAcumulativo = splitInputInCommands(bufferAcumulativo, startOfNextCommand, commands, &startOfNextCommand, &startOfUnprocessedChars, &commandsNo);
+        // for (int i=0; i<commandsNo; i++) {
+        //     printf("\tCOMMANDS[%d] = %s; ",i,commands[i]);
+        // }
+        // printf("\n");
 
+        int pendingWaits = 0; // hijos a esperar al salir del bucle commandsNo
         pid_t pid; /* Usado en el proceso padre para guardar el PID del proceso hijo */
+        // SE EJECUTAN TODOS LOS COMANDOS QUE SE HAYAN PROCESADO
+        printf("commands no = %i\n",commandsNo);
         for (int i=0; i<commandsNo; i++) {
-            nProcRunning++;
-            printf("%i proccesses running\n",nProcRunning);
-            // si hay 2 comandos y p = 3 => 2 fork
+            // Siempre y cuando haya freeThreads, si no -> wait for free threads = un hijo termina
+            if (freeThreads == 0) {
+                printf("waiting for free threads\n");
+                if ((pid = wait(NULL)) == -1) {/* Espera a que termine el proceso hijo */
+                    perror("wait()");
+                    exit(EXIT_FAILURE);
+                }
+                printf("finalizó el hijo con PID = %i\n", pid);
+                freeThreads++;
+                pendingWaits--;
+            }
             switch (pid = fork()) {
                 case -1: /* fork() falló */
                     perror("fork()");
@@ -103,44 +110,39 @@ int main(int argc, char *argv[]) {
                 case 0:                             /* Ejecución del proceso hijo tras fork() con éxito */
                     printf("EXECUTING command %i: %s\n",absCommandNo,commands[i]);
                     execute(commands[i]);
-
-                    exit(EXIT_SUCCESS);
-                    
-                    // execlp("evince", args[0], file, NULL);      /* Sustituye el binario actual por /bin/ls */
-                    
-                    // perror("execv()"); /* Esta línea no se debería ejecutar si la anterior tuvo éxito */
-                    // exit(EXIT_FAILURE);
-                    break;
+                    perror("execv()"); /* Esta línea no se debería ejecutar si la anterior tuvo éxito */
+                    exit(EXIT_FAILURE);
                 default:                  /* Ejecución del proceso padre tras fork() con éxito */
-                    if (nProcRunning < nProc) {
-                        break;
-                    }
-                    if (wait(NULL) == -1) {/* Espera a que termine el proceso hijo */
-                        perror("wait()");
-                        exit(EXIT_FAILURE);
-                    }
-                    printf("finalizó el hijo con PID = %i\n", pid);
-
+                    printf("CHILD %i CREATED\n",pid);
+                    absCommandNo++;
+                    freeThreads--;
+                    pendingWaits++;
+                    // wait(NULL);
                     break;
-                    // if(waitpid(-1, &status, 0) == -1) {
-                    //     perror("waitpid");
-                    //     exit(EXIT_FAILURE);
-                    // }
-
-                    // if (WIFEXITED(status)){
-                    //     printf("salió correctamente con estado %i",WIFEXITED(status));
-                    // }
             }
-            absCommandNo++;
         }
-
+        printf("pendingWatis = %i\n",pendingWaits);
+        // ESPERAMOS A LOS HIJOS PENDIENTES
+        for (int i=0; i<pendingWaits; i++) {
+            if ((pid = wait(NULL)) == -1) {/* Espera a que termine el proceso hijo */
+                perror("wait()");
+                exit(EXIT_FAILURE);
+            }
+            printf("finalizó el hijo con PID = %i\n", pid);
+            freeThreads++;
+        }
+        // LIBERAMOS STRINGS DE COMANDOS
         for (int i=0; i<commandsNo; i++) {
             free(commands[i]);
         }
     }
 
+    printf("%i commands executed\n",absCommandNo);
+
     free(commands);
     free(bufferAcumulativo);
+
+    printf("BYE, BYE!!!\n");
 
     return EXIT_SUCCESS;
 }
@@ -168,7 +170,7 @@ int processArguments(int argc, char **argv) {
         }
     }
 
-//sabemos si hay argumentos de más en esta condición ya que sale del while cuando no hay mas argumentos definidos en getopt con -
+    //sabemos si hay argumentos de más en esta condición ya que sale del while cuando no hay mas argumentos definidos en getopt con -
     if (optind<argc) {
         fprintf(stderr, "Uso: %s [-t] [-x NUMERO] [-s CADENA] [-y NUMERO]\n", argv[0]);
         exit(EXIT_FAILURE);
@@ -178,10 +180,10 @@ int processArguments(int argc, char **argv) {
         exit(EXIT_FAILURE);
     }
     // TODO - ver por qué no coge entre 1 y 8 procesos
-    if (nProc > MAX_PROC || nProc < MAX_PROC) {
+    if (nProc > 8 || nProc < 1) {
         printf("executing con %i procesos\n",nProc);
-        // fprintf(stderr,"invalid number of processes: %i\n",nProc);
-        // exit(EXIT_FAILURE);
+        fprintf(stderr,"Error: El número de procesos en ejecución tiene que estar entre 1 y 8.");
+        exit(EXIT_FAILURE);
     }
     
     return nProc;
@@ -219,6 +221,7 @@ int execute(char *command) {
 
 //TODO procesar varios espacios
 int splitCommand(char *command, char *tokens[]) {
+    printf("splitting command:'%s'\n",command);
     int tokensNo = 0;
     int tokenLength = 0;
     int relativeStartPosition = 0;
@@ -229,12 +232,13 @@ int splitCommand(char *command, char *tokens[]) {
     //  - Si es un NULL TERMINATING BYTE '\0' se sale del bucle. NOTA: hay que guardar este último token.
     for (int i=0; command[i]!='\0'; i++) {
         tokenLength++;
+        printf("processing char '%c'\n",command[i]);
         // si es un espacio, se trata de un token -> se añade al array tokens
         if (command[i] == ' ') {
             // tokenLength = i-relativeStartPosition+1; //+1 para '\0'
             tokens[tokensNo] = (char *) malloc (tokenLength*sizeof(char));
             memcpy(tokens[tokensNo],(command+relativeStartPosition),tokenLength-1);
-            tokens[tokensNo][tokenLength] = '\0'; // ADD TERMINATING NULL BYTE
+            tokens[tokensNo][tokenLength-1] = '\0'; // ADD TERMINATING NULL BYTE
             relativeStartPosition = i+1; // Actualizamos puntero; apunta al siguiente caracter al espacio 
             tokenLength = 0;
             tokensNo++;
@@ -263,59 +267,80 @@ void checkLineSize(int totalBytesReadPerLine) {
 }
 
 // RETURNS
-    // int - number of commands found
+    // char * - string con el nuevo INPUT. Si el INPUT que llega no termina en '\n', probablemente quedará entrada por leer y procesar
 // PARAMS
     // char *input   - puntero al string a procesar (será modificado en el memcpy)
-    // int length   - longitud de la entrada  (sin TERMINATING NULL BYTE, este se añade luego)
-                        // NOTAS: no tiene porque ser la longitud a procesar, puede haberse procesado en la llamada anterior a este método parte del INPUT
-                        // startOfNewOrder apunta al valor de length (dejo startOfNewOrder por legibilidad del código)
+    // int inputLength   - longitud de la entrada  (sin TERMINATING NULL BYTE, este se añade luego)
+                        // NOTAS: no tiene porque ser la longitud a procesar, puede haberse procesado part del input en la llamada anterior a este método
+                        // startOfNextCommand apunta al valor de length (dejo startOfNextCommand por legibilidad del código)
     // char **commands - puntero a strings donde se almacenan las órdenes (líneas) encontradas
-    // int *startOfNewOrder - apunta a variable length del main. se pasa puntero para que la modificación de su valor dentro de la función (paso por referencia)
+    // int *startOfNextCommand - puntero que apunta a variable length del main. se pasa puntero para que la modificación de su valor dentro de la función (paso por referencia)
     // int *startOfUnprocessedChars - puntero a variable del main que se actualiza a la posición del primer carácter no procesado.
-                        // el INPUT puede haber sido parcialmente procesado en la última llamada a esta función
-int splitInputInCommands(char *input, int length, char *commands[], int *startOfNewOrder, int *startOfUnprocessedChars) {
-    int inputLength = length;
+char * splitInputInCommands(char *input, int inputLength, char *commands[], int *startOfNextCommand, int *startOfUnprocessedChars, int *commandsNo) {
     input[inputLength] = '\0';
 
-    // printf("\tProcessing INPUT:\n%s; strlen=%li\n",input,strlen(input));
+    // printf("Processing INPUT: '%s';strlen=%li\n----------------------------------\n",input,strlen(input));
     // printf("\tRemaining INPUT To Process:\n%s; strlen=%li\n",input+*startOfUnprocessedChars,strlen(input+*startOfUnprocessedChars));
 
-    int commandsNo = 0;
     int relativeStartPosition = 0;
-    int processedChars;        //es el iterador que apunta al carácter analizado
-    for (processedChars=*startOfUnprocessedChars; input[processedChars] != '\0'; processedChars++) {
+    int iNextChar;        //iterador que apunta al carácter analizado
+    char *nextCommand = input+relativeStartPosition;
+    *commandsNo = 0;
+    // se itera sobre el input para guardar los comandos en un array.
+    // Se comienza en startOfUnprocessedChars para no examinar entrada ya procesada en la llamada anterior a splitInputInCommands
+    for (iNextChar=*startOfUnprocessedChars; input[iNextChar] != '\0'; iNextChar++) {
+        // printf("char %c - %d\n",input[iNextChar],input[iNextChar]);
         // si es un salto de línea, se trata de un comando -> se añade al array commands
-        if ((input[processedChars] == '\n') || (input[processedChars] == '\r')) {
-            int commandStrLength = processedChars-relativeStartPosition+1; //+1 para '\0'
-            commands[commandsNo] = (char *) malloc (commandStrLength*sizeof(char));
-            memcpy(commands[commandsNo],(input+relativeStartPosition),commandStrLength-1);
-            commands[commandsNo][commandStrLength] = '\0'; // ADD TERMINATING NULL BYTE
-            relativeStartPosition = processedChars+1; // Actualizamos punteros; ambos apuntan al siguiente carácter al NEW_LINE
-            commandsNo++;
+        if ((input[iNextChar] == '\n')) {
+            nextCommand = input+relativeStartPosition;
+            // si el comando es un salto de línea, no lo añadimos al array
+            if (*nextCommand == '\n') {
+                continue;
+            }
+            int commandStrLength = iNextChar-relativeStartPosition+1; //+1 para '\0'
+            commands[*commandsNo] = (char *) malloc (commandStrLength*sizeof(char));
+            // sustituimos el salto del línea por el NULL TERMINATING BYTE
+            memcpy(commands[*commandsNo],nextCommand,commandStrLength-1);
+            commands[*commandsNo][commandStrLength-1] = '\0'; // ADD TERMINATING NULL BYTE
+            relativeStartPosition = iNextChar+1; // Actualizamos punteros; ambos apuntan al siguiente carácter al NEW_LINE
+            (*commandsNo)++;
+        }
+        nextCommand = input+relativeStartPosition;
+    }
+    // printf("COMMANDS NO = %i\n",*commandsNo);
+        
+    char *newBufferAcumulativo = (char *)malloc((MAX_LINE_SIZE+1)*sizeof(char));      // MAX_LINE_SIZE + '\0'
+
+    // si no se han encontrado órdenes:
+    //  - se devuelve el input (bufferAcumulativo) tal cual. Tiene que mantener los mismos datos que tenía para intentar completar una orden con más datos de la entrada (read())
+    //  - hay que actualizar la variable startOfNextCommand para no machacar los datos válidos con el siguiente read
+    if (*commandsNo == 0) {
+        *startOfNextCommand = inputLength+1;
+    }
+    // en otro caso, modificamos bufferAcumulativo copiando los datos no procesados y actualizamos startOfNextCommand y startOfUnprocessedChars
+    else {
+        // si se han encontrado órdenes, pero el último carácter era un salto de línea, no hay que crear nuevo bufferAcumulativo (input) ya que se ha procesado todo el input
+        if (input[iNextChar-1] == '\n') {
+            *startOfNextCommand = 0;
+            // printf("INPUT totalmente procesado\n");
+        }
+        // copiamos los bytes (caracteres) desde el carácter siguiente al NEW_LINE hasta el final de entrada (antes del '\0')
+        else if (relativeStartPosition < inputLength) {
+            newBufferAcumulativo = memmove(newBufferAcumulativo,nextCommand,inputLength+1); // +1 - copio también el '\0' para imprimirlo correctamente en el main
+            // newBufferAcumulativo[inputLength+1] = '\0';
+            free(input);
+            *startOfNextCommand = inputLength-relativeStartPosition; // con esto devolvemos el carácter siguiente a donde terminó la última orden, eg:
+                    // string 'ls -l\necho next\n' devuelve la posición de la e del echo. Queremos que devuelva 
+                    // para reads de 16 bytes con la entrada 'ps\necho luego\nls -lnext\n', a splitInputInCommands le llega INPUT = 'ps\necho luego\nls'
+                    // crea dos órdenes, a saber, 'ps' y 'echo luego', pero no ls, ya que falta el ' -l \n'. Recordemos que no crea orden hasta que encuentra '\n'
+                    // No quiero que vuelva a procesar el ls ya que ya se había procesado, y en INPUTS muy grandes se perdería mucha eficiencia.
+                    // de ahí que se devuelva otra
+            *startOfUnprocessedChars = inputLength+1-iNextChar+1; // inputLength+1 -> '\n' // iNextChar+1 -> si hemos procesado 3 caracteres => el siguiente a procesar es el 4
+            // printf("\tbufferBackToMain = %s;\tstartOfUnprocessedChars=%d\n",newBufferAcumulativo,*startOfUnprocessedChars);
         }
     }
 
-    // si no se han encontrado órdenes:
-    //  - bufferAcumulativo no se modifica. Tiene que mantener los mismos datos que tenía para intentar completar una orden con más datos de la entrada (read())
-    //  - hay que actualizar la variable startOfNewOrder para no machacar los datos válidos con el siguiente read
-    if (commandsNo == 0) {
-        *startOfNewOrder = inputLength+1;
-    }
-    // en otro caso, modificamos bufferAcumulativo copiando los datos no procesados y actualizamos startOfNewOrder y startOfUnprocessedChars
-    else {
-        char *remainingStr = memcpy(input,input+relativeStartPosition,inputLength); // copiamos los bytes (caracteres) desde el carácter siguiente al NEW_LINE hasta el final de entrada (antes del '\0')
-        *startOfNewOrder = inputLength-relativeStartPosition; // con esto devolvemos el carácter siguiente a donde terminó la última orden, eg:
-                // string 'ls -l\necho next\n' devuelve la posición de la e del echo. Queremos que devuelva 
-                // para reads de 16 bytes con la entrada 'ps\necho luego\nls -lnext\n', a splitInputInCommands le llega INPUT = 'ps\necho luego\nls'
-                // crea dos órdenes, a saber, 'ps' y 'echo luego', pero no ls, ya que falta el ' -l \n'. Recordemos que no crea orden hasta que encuentra '\n'
-                // No quiero que vuelva a procesar el ls ya que ya se había procesado, y en INPUTS muy grandes se perdería mucha eficiencia.
-                // de ahí que se devuelva otra
-        // *absoluteStartOfUnprocessedChars = inputLength-*startOfNewOrder;
-        *startOfUnprocessedChars = inputLength+1-processedChars+1; // inputLength+1 -> '\n' // processedChars+1 -> si hemos procesado 3 caracteres => el siguiente a procesar es el 4
-        // printf("\tRemainginStr = %s;\tstartOfUnprocessedChars=%d\n",remainingStr,*startOfUnprocessedChars);
-    }
-
-    return commandsNo;
+    return newBufferAcumulativo;
 }
 
 

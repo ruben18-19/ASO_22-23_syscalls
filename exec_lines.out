@@ -1,0 +1,1099 @@
+--------------------------------------ROUND 0
+bufferAcumulativo='"echo 1"
+"echo 2'; buffer='"echo 1"
+"echo 2'
+	Processing INPUT: '"echo 1"
+"echo 2';strlen=16
+----------------------------------
+COMMAND = '"echo 1"
+"echo 2'
+		COMMAND ANTES DEL NULLL = '"echo 1"'		COMMAND DESPUÉS DEL NULL = '"echo 1"'	RESTANTE = '"echo 2'
+	RESTANTE = '"echo 2'
+endInputPosition 16; fin de input = ;COMMANDS NO = 1; commands[0]='"echo 1"'
+INPUT before memcpy: '"echo 1"
+"echo 2'; input length = 16; relative start position = 9
+remainingStr = "echo 2
+INPUT after memcpy: '"echo 2'
+	RemainginStr = "echo 2;	startOfUnprocessedChars=2
+splitInputInCommands->COMMANDS[0] = "echo 1"
+OUTPUT SPLIT INPUT IN COMMANDS = '"echo 2'
+
+OUTPUT MAIN = '"echo 2'
+EXECUTING command 1: "echo 1"
+ARGSV = 3
+	"echo; 1"; (null); 
+--------------------------------------ROUND 0
+bufferAcumulativo='"echo 1"
+"echo 2'; buffer='"echo 1"
+"echo 2'
+	Processing INPUT: '"echo 1"
+"echo 2';strlen=16
+----------------------------------
+COMMAND = '"echo 1"
+"echo 2'
+		COMMAND ANTES DEL NULLL = '"echo 1"'		COMMAND DESPUÉS DEL NULL = '"echo 1"'	RESTANTE = '"echo 2'
+	RESTANTE = '"echo 2'
+endInputPosition 16; fin de input = ;COMMANDS NO = 1; commands[0]='"echo 1"'
+INPUT before memcpy: '"echo 1"
+"echo 2'; input length = 16; relative start position = 9
+remainingStr = "echo 2
+INPUT after memcpy: '"echo 2'
+	RemainginStr = "echo 2;	startOfUnprocessedChars=2
+splitInputInCommands->COMMANDS[0] = "echo 1"
+OUTPUT SPLIT INPUT IN COMMANDS = '"echo 2'
+
+OUTPUT MAIN = '"echo 2'
+finalizó el hijo con PID = 29249
+--------------------------------------ROUND 1
+bufferAcumulativo='"echo 2"
+"echo 3"
+"echo'; buffer='"
+"echo 3"
+"echo'
+	Processing INPUT: '"echo 2"
+"echo 3"
+"echo';strlen=23
+----------------------------------
+COMMAND = '"echo 2"
+"echo 3"
+"echo'
+		COMMAND ANTES DEL NULLL = '"echo 2"'		COMMAND DESPUÉS DEL NULL = '"echo 2"'COMMAND = '"echo 3"
+"echo'
+		COMMAND ANTES DEL NULLL = '"echo 3"'		COMMAND DESPUÉS DEL NULL = '"echo 3"'	RESTANTE = '"echo'
+	RESTANTE = '"echo'
+endInputPosition 23; fin de input = ;COMMANDS NO = 2; commands[0]='"echo 2"'
+INPUT before memcpy: '"echo 2"
+"echo 3"
+"echo'; input length = 23; relative start position = 18
+remainingStr = "echo
+INPUT after memcpy: '"echo'
+	RemainginStr = "echo;	startOfUnprocessedChars=2
+splitInputInCommands->COMMANDS[0] = "echo 2"
+splitInputInCommands->COMMANDS[1] = "echo 3"
+OUTPUT SPLIT INPUT IN COMMANDS = '"echo'
+	MAIN -> COMMANDS[2] = "echo 3"; 
+OUTPUT MAIN = '"echo'
+EXECUTING command 2: "echo 2"
+ARGSV = 3
+	"echo; 2"; (null); 
+--------------------------------------ROUND 0
+bufferAcumulativo='"echo 1"
+"echo 2'; buffer='"echo 1"
+"echo 2'
+	Processing INPUT: '"echo 1"
+"echo 2';strlen=16
+----------------------------------
+COMMAND = '"echo 1"
+"echo 2'
+		COMMAND ANTES DEL NULLL = '"echo 1"'		COMMAND DESPUÉS DEL NULL = '"echo 1"'	RESTANTE = '"echo 2'
+	RESTANTE = '"echo 2'
+endInputPosition 16; fin de input = ;COMMANDS NO = 1; commands[0]='"echo 1"'
+INPUT before memcpy: '"echo 1"
+"echo 2'; input length = 16; relative start position = 9
+remainingStr = "echo 2
+INPUT after memcpy: '"echo 2'
+	RemainginStr = "echo 2;	startOfUnprocessedChars=2
+splitInputInCommands->COMMANDS[0] = "echo 1"
+OUTPUT SPLIT INPUT IN COMMANDS = '"echo 2'
+
+OUTPUT MAIN = '"echo 2'
+finalizó el hijo con PID = 29249
+--------------------------------------ROUND 1
+bufferAcumulativo='"echo 2"
+"echo 3"
+"echo'; buffer='"
+"echo 3"
+"echo'
+	Processing INPUT: '"echo 2"
+"echo 3"
+"echo';strlen=23
+----------------------------------
+COMMAND = '"echo 2"
+"echo 3"
+"echo'
+		COMMAND ANTES DEL NULLL = '"echo 2"'		COMMAND DESPUÉS DEL NULL = '"echo 2"'COMMAND = '"echo 3"
+"echo'
+		COMMAND ANTES DEL NULLL = '"echo 3"'		COMMAND DESPUÉS DEL NULL = '"echo 3"'	RESTANTE = '"echo'
+	RESTANTE = '"echo'
+endInputPosition 23; fin de input = ;COMMANDS NO = 2; commands[0]='"echo 2"'
+INPUT before memcpy: '"echo 2"
+"echo 3"
+"echo'; input length = 23; relative start position = 18
+remainingStr = "echo
+INPUT after memcpy: '"echo'
+	RemainginStr = "echo;	startOfUnprocessedChars=2
+splitInputInCommands->COMMANDS[0] = "echo 2"
+splitInputInCommands->COMMANDS[1] = "echo 3"
+OUTPUT SPLIT INPUT IN COMMANDS = '"echo'
+	MAIN -> COMMANDS[2] = "echo 3"; 
+OUTPUT MAIN = '"echo'
+finalizó el hijo con PID = 29250
+EXECUTING command 3: "echo 3"
+ARGSV = 3
+	"echo; 3"; (null); 
+--------------------------------------ROUND 0
+bufferAcumulativo='"echo 1"
+"echo 2'; buffer='"echo 1"
+"echo 2'
+	Processing INPUT: '"echo 1"
+"echo 2';strlen=16
+----------------------------------
+COMMAND = '"echo 1"
+"echo 2'
+		COMMAND ANTES DEL NULLL = '"echo 1"'		COMMAND DESPUÉS DEL NULL = '"echo 1"'	RESTANTE = '"echo 2'
+	RESTANTE = '"echo 2'
+endInputPosition 16; fin de input = ;COMMANDS NO = 1; commands[0]='"echo 1"'
+INPUT before memcpy: '"echo 1"
+"echo 2'; input length = 16; relative start position = 9
+remainingStr = "echo 2
+INPUT after memcpy: '"echo 2'
+	RemainginStr = "echo 2;	startOfUnprocessedChars=2
+splitInputInCommands->COMMANDS[0] = "echo 1"
+OUTPUT SPLIT INPUT IN COMMANDS = '"echo 2'
+
+OUTPUT MAIN = '"echo 2'
+finalizó el hijo con PID = 29249
+--------------------------------------ROUND 1
+bufferAcumulativo='"echo 2"
+"echo 3"
+"echo'; buffer='"
+"echo 3"
+"echo'
+	Processing INPUT: '"echo 2"
+"echo 3"
+"echo';strlen=23
+----------------------------------
+COMMAND = '"echo 2"
+"echo 3"
+"echo'
+		COMMAND ANTES DEL NULLL = '"echo 2"'		COMMAND DESPUÉS DEL NULL = '"echo 2"'COMMAND = '"echo 3"
+"echo'
+		COMMAND ANTES DEL NULLL = '"echo 3"'		COMMAND DESPUÉS DEL NULL = '"echo 3"'	RESTANTE = '"echo'
+	RESTANTE = '"echo'
+endInputPosition 23; fin de input = ;COMMANDS NO = 2; commands[0]='"echo 2"'
+INPUT before memcpy: '"echo 2"
+"echo 3"
+"echo'; input length = 23; relative start position = 18
+remainingStr = "echo
+INPUT after memcpy: '"echo'
+	RemainginStr = "echo;	startOfUnprocessedChars=2
+splitInputInCommands->COMMANDS[0] = "echo 2"
+splitInputInCommands->COMMANDS[1] = "echo 3"
+OUTPUT SPLIT INPUT IN COMMANDS = '"echo'
+	MAIN -> COMMANDS[2] = "echo 3"; 
+OUTPUT MAIN = '"echo'
+finalizó el hijo con PID = 29250
+finalizó el hijo con PID = 29251
+--------------------------------------ROUND 2
+bufferAcumulativo='"echo 4"
+"echo 5"
+"ec'; buffer=' 4"
+"echo 5"
+"ec'
+	Processing INPUT: '"echo 4"
+"echo 5"
+"ec';strlen=21
+----------------------------------
+COMMAND = '"echo 4"
+"echo 5"
+"ec'
+		COMMAND ANTES DEL NULLL = '"echo 4"'		COMMAND DESPUÉS DEL NULL = '"echo 4"'COMMAND = '"echo 5"
+"ec'
+		COMMAND ANTES DEL NULLL = '"echo 5"'		COMMAND DESPUÉS DEL NULL = '"echo 5"'	RESTANTE = '"ec'
+	RESTANTE = '"ec'
+endInputPosition 21; fin de input = ;COMMANDS NO = 2; commands[0]='"echo 4"'
+INPUT before memcpy: '"echo 4"
+"echo 5"
+"ec'; input length = 21; relative start position = 18
+remainingStr = "ec
+INPUT after memcpy: '"ec'
+	RemainginStr = "ec;	startOfUnprocessedChars=2
+splitInputInCommands->COMMANDS[0] = "echo 4"
+splitInputInCommands->COMMANDS[1] = "echo 5"
+OUTPUT SPLIT INPUT IN COMMANDS = '"ec'
+	MAIN -> COMMANDS[4] = "echo 5"; 
+OUTPUT MAIN = '"ec'
+EXECUTING command 4: "echo 4"
+ARGSV = 3
+	"echo; 4"; (null); 
+--------------------------------------ROUND 0
+bufferAcumulativo='"echo 1"
+"echo 2'; buffer='"echo 1"
+"echo 2'
+	Processing INPUT: '"echo 1"
+"echo 2';strlen=16
+----------------------------------
+COMMAND = '"echo 1"
+"echo 2'
+		COMMAND ANTES DEL NULLL = '"echo 1"'		COMMAND DESPUÉS DEL NULL = '"echo 1"'	RESTANTE = '"echo 2'
+	RESTANTE = '"echo 2'
+endInputPosition 16; fin de input = ;COMMANDS NO = 1; commands[0]='"echo 1"'
+INPUT before memcpy: '"echo 1"
+"echo 2'; input length = 16; relative start position = 9
+remainingStr = "echo 2
+INPUT after memcpy: '"echo 2'
+	RemainginStr = "echo 2;	startOfUnprocessedChars=2
+splitInputInCommands->COMMANDS[0] = "echo 1"
+OUTPUT SPLIT INPUT IN COMMANDS = '"echo 2'
+
+OUTPUT MAIN = '"echo 2'
+finalizó el hijo con PID = 29249
+--------------------------------------ROUND 1
+bufferAcumulativo='"echo 2"
+"echo 3"
+"echo'; buffer='"
+"echo 3"
+"echo'
+	Processing INPUT: '"echo 2"
+"echo 3"
+"echo';strlen=23
+----------------------------------
+COMMAND = '"echo 2"
+"echo 3"
+"echo'
+		COMMAND ANTES DEL NULLL = '"echo 2"'		COMMAND DESPUÉS DEL NULL = '"echo 2"'COMMAND = '"echo 3"
+"echo'
+		COMMAND ANTES DEL NULLL = '"echo 3"'		COMMAND DESPUÉS DEL NULL = '"echo 3"'	RESTANTE = '"echo'
+	RESTANTE = '"echo'
+endInputPosition 23; fin de input = ;COMMANDS NO = 2; commands[0]='"echo 2"'
+INPUT before memcpy: '"echo 2"
+"echo 3"
+"echo'; input length = 23; relative start position = 18
+remainingStr = "echo
+INPUT after memcpy: '"echo'
+	RemainginStr = "echo;	startOfUnprocessedChars=2
+splitInputInCommands->COMMANDS[0] = "echo 2"
+splitInputInCommands->COMMANDS[1] = "echo 3"
+OUTPUT SPLIT INPUT IN COMMANDS = '"echo'
+	MAIN -> COMMANDS[2] = "echo 3"; 
+OUTPUT MAIN = '"echo'
+finalizó el hijo con PID = 29250
+finalizó el hijo con PID = 29251
+--------------------------------------ROUND 2
+bufferAcumulativo='"echo 4"
+"echo 5"
+"ec'; buffer=' 4"
+"echo 5"
+"ec'
+	Processing INPUT: '"echo 4"
+"echo 5"
+"ec';strlen=21
+----------------------------------
+COMMAND = '"echo 4"
+"echo 5"
+"ec'
+		COMMAND ANTES DEL NULLL = '"echo 4"'		COMMAND DESPUÉS DEL NULL = '"echo 4"'COMMAND = '"echo 5"
+"ec'
+		COMMAND ANTES DEL NULLL = '"echo 5"'		COMMAND DESPUÉS DEL NULL = '"echo 5"'	RESTANTE = '"ec'
+	RESTANTE = '"ec'
+endInputPosition 21; fin de input = ;COMMANDS NO = 2; commands[0]='"echo 4"'
+INPUT before memcpy: '"echo 4"
+"echo 5"
+"ec'; input length = 21; relative start position = 18
+remainingStr = "ec
+INPUT after memcpy: '"ec'
+	RemainginStr = "ec;	startOfUnprocessedChars=2
+splitInputInCommands->COMMANDS[0] = "echo 4"
+splitInputInCommands->COMMANDS[1] = "echo 5"
+OUTPUT SPLIT INPUT IN COMMANDS = '"ec'
+	MAIN -> COMMANDS[4] = "echo 5"; 
+OUTPUT MAIN = '"ec'
+finalizó el hijo con PID = 29252
+EXECUTING command 5: "echo 5"
+ARGSV = 3
+	"echo; 5"; (null); 
+--------------------------------------ROUND 0
+bufferAcumulativo='"echo 1"
+"echo 2'; buffer='"echo 1"
+"echo 2'
+	Processing INPUT: '"echo 1"
+"echo 2';strlen=16
+----------------------------------
+COMMAND = '"echo 1"
+"echo 2'
+		COMMAND ANTES DEL NULLL = '"echo 1"'		COMMAND DESPUÉS DEL NULL = '"echo 1"'	RESTANTE = '"echo 2'
+	RESTANTE = '"echo 2'
+endInputPosition 16; fin de input = ;COMMANDS NO = 1; commands[0]='"echo 1"'
+INPUT before memcpy: '"echo 1"
+"echo 2'; input length = 16; relative start position = 9
+remainingStr = "echo 2
+INPUT after memcpy: '"echo 2'
+	RemainginStr = "echo 2;	startOfUnprocessedChars=2
+splitInputInCommands->COMMANDS[0] = "echo 1"
+OUTPUT SPLIT INPUT IN COMMANDS = '"echo 2'
+
+OUTPUT MAIN = '"echo 2'
+finalizó el hijo con PID = 29249
+--------------------------------------ROUND 1
+bufferAcumulativo='"echo 2"
+"echo 3"
+"echo'; buffer='"
+"echo 3"
+"echo'
+	Processing INPUT: '"echo 2"
+"echo 3"
+"echo';strlen=23
+----------------------------------
+COMMAND = '"echo 2"
+"echo 3"
+"echo'
+		COMMAND ANTES DEL NULLL = '"echo 2"'		COMMAND DESPUÉS DEL NULL = '"echo 2"'COMMAND = '"echo 3"
+"echo'
+		COMMAND ANTES DEL NULLL = '"echo 3"'		COMMAND DESPUÉS DEL NULL = '"echo 3"'	RESTANTE = '"echo'
+	RESTANTE = '"echo'
+endInputPosition 23; fin de input = ;COMMANDS NO = 2; commands[0]='"echo 2"'
+INPUT before memcpy: '"echo 2"
+"echo 3"
+"echo'; input length = 23; relative start position = 18
+remainingStr = "echo
+INPUT after memcpy: '"echo'
+	RemainginStr = "echo;	startOfUnprocessedChars=2
+splitInputInCommands->COMMANDS[0] = "echo 2"
+splitInputInCommands->COMMANDS[1] = "echo 3"
+OUTPUT SPLIT INPUT IN COMMANDS = '"echo'
+	MAIN -> COMMANDS[2] = "echo 3"; 
+OUTPUT MAIN = '"echo'
+finalizó el hijo con PID = 29250
+finalizó el hijo con PID = 29251
+--------------------------------------ROUND 2
+bufferAcumulativo='"echo 4"
+"echo 5"
+"ec'; buffer=' 4"
+"echo 5"
+"ec'
+	Processing INPUT: '"echo 4"
+"echo 5"
+"ec';strlen=21
+----------------------------------
+COMMAND = '"echo 4"
+"echo 5"
+"ec'
+		COMMAND ANTES DEL NULLL = '"echo 4"'		COMMAND DESPUÉS DEL NULL = '"echo 4"'COMMAND = '"echo 5"
+"ec'
+		COMMAND ANTES DEL NULLL = '"echo 5"'		COMMAND DESPUÉS DEL NULL = '"echo 5"'	RESTANTE = '"ec'
+	RESTANTE = '"ec'
+endInputPosition 21; fin de input = ;COMMANDS NO = 2; commands[0]='"echo 4"'
+INPUT before memcpy: '"echo 4"
+"echo 5"
+"ec'; input length = 21; relative start position = 18
+remainingStr = "ec
+INPUT after memcpy: '"ec'
+	RemainginStr = "ec;	startOfUnprocessedChars=2
+splitInputInCommands->COMMANDS[0] = "echo 4"
+splitInputInCommands->COMMANDS[1] = "echo 5"
+OUTPUT SPLIT INPUT IN COMMANDS = '"ec'
+	MAIN -> COMMANDS[4] = "echo 5"; 
+OUTPUT MAIN = '"ec'
+finalizó el hijo con PID = 29252
+finalizó el hijo con PID = 29254
+--------------------------------------ROUND 3
+bufferAcumulativo='"echo 6"
+"echo 7"
+"'; buffer='ho 6"
+"echo 7"
+"'
+	Processing INPUT: '"echo 6"
+"echo 7"
+"';strlen=19
+----------------------------------
+COMMAND = '"echo 6"
+"echo 7"
+"'
+		COMMAND ANTES DEL NULLL = '"echo 6"'		COMMAND DESPUÉS DEL NULL = '"echo 6"'COMMAND = '"echo 7"
+"'
+		COMMAND ANTES DEL NULLL = '"echo 7"'		COMMAND DESPUÉS DEL NULL = '"echo 7"'	RESTANTE = '"'
+	RESTANTE = '"'
+endInputPosition 19; fin de input = ;COMMANDS NO = 2; commands[0]='"echo 6"'
+INPUT before memcpy: '"echo 6"
+"echo 7"
+"'; input length = 19; relative start position = 18
+remainingStr = "
+INPUT after memcpy: '"'
+	RemainginStr = ";	startOfUnprocessedChars=2
+splitInputInCommands->COMMANDS[0] = "echo 6"
+splitInputInCommands->COMMANDS[1] = "echo 7"
+OUTPUT SPLIT INPUT IN COMMANDS = '"'
+	MAIN -> COMMANDS[6] = "echo 7"; 
+OUTPUT MAIN = '"'
+EXECUTING command 6: "echo 6"
+ARGSV = 3
+	"echo; 6"; (null); 
+--------------------------------------ROUND 0
+bufferAcumulativo='"echo 1"
+"echo 2'; buffer='"echo 1"
+"echo 2'
+	Processing INPUT: '"echo 1"
+"echo 2';strlen=16
+----------------------------------
+COMMAND = '"echo 1"
+"echo 2'
+		COMMAND ANTES DEL NULLL = '"echo 1"'		COMMAND DESPUÉS DEL NULL = '"echo 1"'	RESTANTE = '"echo 2'
+	RESTANTE = '"echo 2'
+endInputPosition 16; fin de input = ;COMMANDS NO = 1; commands[0]='"echo 1"'
+INPUT before memcpy: '"echo 1"
+"echo 2'; input length = 16; relative start position = 9
+remainingStr = "echo 2
+INPUT after memcpy: '"echo 2'
+	RemainginStr = "echo 2;	startOfUnprocessedChars=2
+splitInputInCommands->COMMANDS[0] = "echo 1"
+OUTPUT SPLIT INPUT IN COMMANDS = '"echo 2'
+
+OUTPUT MAIN = '"echo 2'
+finalizó el hijo con PID = 29249
+--------------------------------------ROUND 1
+bufferAcumulativo='"echo 2"
+"echo 3"
+"echo'; buffer='"
+"echo 3"
+"echo'
+	Processing INPUT: '"echo 2"
+"echo 3"
+"echo';strlen=23
+----------------------------------
+COMMAND = '"echo 2"
+"echo 3"
+"echo'
+		COMMAND ANTES DEL NULLL = '"echo 2"'		COMMAND DESPUÉS DEL NULL = '"echo 2"'COMMAND = '"echo 3"
+"echo'
+		COMMAND ANTES DEL NULLL = '"echo 3"'		COMMAND DESPUÉS DEL NULL = '"echo 3"'	RESTANTE = '"echo'
+	RESTANTE = '"echo'
+endInputPosition 23; fin de input = ;COMMANDS NO = 2; commands[0]='"echo 2"'
+INPUT before memcpy: '"echo 2"
+"echo 3"
+"echo'; input length = 23; relative start position = 18
+remainingStr = "echo
+INPUT after memcpy: '"echo'
+	RemainginStr = "echo;	startOfUnprocessedChars=2
+splitInputInCommands->COMMANDS[0] = "echo 2"
+splitInputInCommands->COMMANDS[1] = "echo 3"
+OUTPUT SPLIT INPUT IN COMMANDS = '"echo'
+	MAIN -> COMMANDS[2] = "echo 3"; 
+OUTPUT MAIN = '"echo'
+finalizó el hijo con PID = 29250
+finalizó el hijo con PID = 29251
+--------------------------------------ROUND 2
+bufferAcumulativo='"echo 4"
+"echo 5"
+"ec'; buffer=' 4"
+"echo 5"
+"ec'
+	Processing INPUT: '"echo 4"
+"echo 5"
+"ec';strlen=21
+----------------------------------
+COMMAND = '"echo 4"
+"echo 5"
+"ec'
+		COMMAND ANTES DEL NULLL = '"echo 4"'		COMMAND DESPUÉS DEL NULL = '"echo 4"'COMMAND = '"echo 5"
+"ec'
+		COMMAND ANTES DEL NULLL = '"echo 5"'		COMMAND DESPUÉS DEL NULL = '"echo 5"'	RESTANTE = '"ec'
+	RESTANTE = '"ec'
+endInputPosition 21; fin de input = ;COMMANDS NO = 2; commands[0]='"echo 4"'
+INPUT before memcpy: '"echo 4"
+"echo 5"
+"ec'; input length = 21; relative start position = 18
+remainingStr = "ec
+INPUT after memcpy: '"ec'
+	RemainginStr = "ec;	startOfUnprocessedChars=2
+splitInputInCommands->COMMANDS[0] = "echo 4"
+splitInputInCommands->COMMANDS[1] = "echo 5"
+OUTPUT SPLIT INPUT IN COMMANDS = '"ec'
+	MAIN -> COMMANDS[4] = "echo 5"; 
+OUTPUT MAIN = '"ec'
+finalizó el hijo con PID = 29252
+finalizó el hijo con PID = 29254
+--------------------------------------ROUND 3
+bufferAcumulativo='"echo 6"
+"echo 7"
+"'; buffer='ho 6"
+"echo 7"
+"'
+	Processing INPUT: '"echo 6"
+"echo 7"
+"';strlen=19
+----------------------------------
+COMMAND = '"echo 6"
+"echo 7"
+"'
+		COMMAND ANTES DEL NULLL = '"echo 6"'		COMMAND DESPUÉS DEL NULL = '"echo 6"'COMMAND = '"echo 7"
+"'
+		COMMAND ANTES DEL NULLL = '"echo 7"'		COMMAND DESPUÉS DEL NULL = '"echo 7"'	RESTANTE = '"'
+	RESTANTE = '"'
+endInputPosition 19; fin de input = ;COMMANDS NO = 2; commands[0]='"echo 6"'
+INPUT before memcpy: '"echo 6"
+"echo 7"
+"'; input length = 19; relative start position = 18
+remainingStr = "
+INPUT after memcpy: '"'
+	RemainginStr = ";	startOfUnprocessedChars=2
+splitInputInCommands->COMMANDS[0] = "echo 6"
+splitInputInCommands->COMMANDS[1] = "echo 7"
+OUTPUT SPLIT INPUT IN COMMANDS = '"'
+	MAIN -> COMMANDS[6] = "echo 7"; 
+OUTPUT MAIN = '"'
+finalizó el hijo con PID = 29255
+EXECUTING command 7: "echo 7"
+ARGSV = 3
+	"echo; 7"; (null); 
+--------------------------------------ROUND 0
+bufferAcumulativo='"echo 1"
+"echo 2'; buffer='"echo 1"
+"echo 2'
+	Processing INPUT: '"echo 1"
+"echo 2';strlen=16
+----------------------------------
+COMMAND = '"echo 1"
+"echo 2'
+		COMMAND ANTES DEL NULLL = '"echo 1"'		COMMAND DESPUÉS DEL NULL = '"echo 1"'	RESTANTE = '"echo 2'
+	RESTANTE = '"echo 2'
+endInputPosition 16; fin de input = ;COMMANDS NO = 1; commands[0]='"echo 1"'
+INPUT before memcpy: '"echo 1"
+"echo 2'; input length = 16; relative start position = 9
+remainingStr = "echo 2
+INPUT after memcpy: '"echo 2'
+	RemainginStr = "echo 2;	startOfUnprocessedChars=2
+splitInputInCommands->COMMANDS[0] = "echo 1"
+OUTPUT SPLIT INPUT IN COMMANDS = '"echo 2'
+
+OUTPUT MAIN = '"echo 2'
+finalizó el hijo con PID = 29249
+--------------------------------------ROUND 1
+bufferAcumulativo='"echo 2"
+"echo 3"
+"echo'; buffer='"
+"echo 3"
+"echo'
+	Processing INPUT: '"echo 2"
+"echo 3"
+"echo';strlen=23
+----------------------------------
+COMMAND = '"echo 2"
+"echo 3"
+"echo'
+		COMMAND ANTES DEL NULLL = '"echo 2"'		COMMAND DESPUÉS DEL NULL = '"echo 2"'COMMAND = '"echo 3"
+"echo'
+		COMMAND ANTES DEL NULLL = '"echo 3"'		COMMAND DESPUÉS DEL NULL = '"echo 3"'	RESTANTE = '"echo'
+	RESTANTE = '"echo'
+endInputPosition 23; fin de input = ;COMMANDS NO = 2; commands[0]='"echo 2"'
+INPUT before memcpy: '"echo 2"
+"echo 3"
+"echo'; input length = 23; relative start position = 18
+remainingStr = "echo
+INPUT after memcpy: '"echo'
+	RemainginStr = "echo;	startOfUnprocessedChars=2
+splitInputInCommands->COMMANDS[0] = "echo 2"
+splitInputInCommands->COMMANDS[1] = "echo 3"
+OUTPUT SPLIT INPUT IN COMMANDS = '"echo'
+	MAIN -> COMMANDS[2] = "echo 3"; 
+OUTPUT MAIN = '"echo'
+finalizó el hijo con PID = 29250
+finalizó el hijo con PID = 29251
+--------------------------------------ROUND 2
+bufferAcumulativo='"echo 4"
+"echo 5"
+"ec'; buffer=' 4"
+"echo 5"
+"ec'
+	Processing INPUT: '"echo 4"
+"echo 5"
+"ec';strlen=21
+----------------------------------
+COMMAND = '"echo 4"
+"echo 5"
+"ec'
+		COMMAND ANTES DEL NULLL = '"echo 4"'		COMMAND DESPUÉS DEL NULL = '"echo 4"'COMMAND = '"echo 5"
+"ec'
+		COMMAND ANTES DEL NULLL = '"echo 5"'		COMMAND DESPUÉS DEL NULL = '"echo 5"'	RESTANTE = '"ec'
+	RESTANTE = '"ec'
+endInputPosition 21; fin de input = ;COMMANDS NO = 2; commands[0]='"echo 4"'
+INPUT before memcpy: '"echo 4"
+"echo 5"
+"ec'; input length = 21; relative start position = 18
+remainingStr = "ec
+INPUT after memcpy: '"ec'
+	RemainginStr = "ec;	startOfUnprocessedChars=2
+splitInputInCommands->COMMANDS[0] = "echo 4"
+splitInputInCommands->COMMANDS[1] = "echo 5"
+OUTPUT SPLIT INPUT IN COMMANDS = '"ec'
+	MAIN -> COMMANDS[4] = "echo 5"; 
+OUTPUT MAIN = '"ec'
+finalizó el hijo con PID = 29252
+finalizó el hijo con PID = 29254
+--------------------------------------ROUND 3
+bufferAcumulativo='"echo 6"
+"echo 7"
+"'; buffer='ho 6"
+"echo 7"
+"'
+	Processing INPUT: '"echo 6"
+"echo 7"
+"';strlen=19
+----------------------------------
+COMMAND = '"echo 6"
+"echo 7"
+"'
+		COMMAND ANTES DEL NULLL = '"echo 6"'		COMMAND DESPUÉS DEL NULL = '"echo 6"'COMMAND = '"echo 7"
+"'
+		COMMAND ANTES DEL NULLL = '"echo 7"'		COMMAND DESPUÉS DEL NULL = '"echo 7"'	RESTANTE = '"'
+	RESTANTE = '"'
+endInputPosition 19; fin de input = ;COMMANDS NO = 2; commands[0]='"echo 6"'
+INPUT before memcpy: '"echo 6"
+"echo 7"
+"'; input length = 19; relative start position = 18
+remainingStr = "
+INPUT after memcpy: '"'
+	RemainginStr = ";	startOfUnprocessedChars=2
+splitInputInCommands->COMMANDS[0] = "echo 6"
+splitInputInCommands->COMMANDS[1] = "echo 7"
+OUTPUT SPLIT INPUT IN COMMANDS = '"'
+	MAIN -> COMMANDS[6] = "echo 7"; 
+OUTPUT MAIN = '"'
+finalizó el hijo con PID = 29255
+finalizó el hijo con PID = 29256
+--------------------------------------ROUND 4
+bufferAcumulativo='"echo 8"
+"echo 9"'; buffer='echo 8"
+"echo 9"'
+	Processing INPUT: '"echo 8"
+"echo 9"';strlen=17
+----------------------------------
+COMMAND = '"echo 8"
+"echo 9"'
+		COMMAND ANTES DEL NULLL = '"echo 8"'		COMMAND DESPUÉS DEL NULL = '"echo 8"'	RESTANTE = '"echo 9"'
+	RESTANTE = '"echo 9"'
+endInputPosition 17; fin de input = ;COMMANDS NO = 1; commands[0]='"echo 8"'
+INPUT before memcpy: '"echo 8"
+"echo 9"'; input length = 17; relative start position = 9
+remainingStr = "echo 9"
+INPUT after memcpy: '"echo 9"'
+	RemainginStr = "echo 9";	startOfUnprocessedChars=2
+splitInputInCommands->COMMANDS[0] = "echo 8"
+OUTPUT SPLIT INPUT IN COMMANDS = '"echo 9"'
+
+OUTPUT MAIN = '"echo 9"'
+EXECUTING command 8: "echo 8"
+ARGSV = 3
+	"echo; 8"; (null); 
+before memcpy: '"echo 8"
+"echo 9"'; input length = 17; relative start position = 9
+remainingStr = "echo 9"
+INPUT after memcpy: '"echo 9"'
+	RemainginStr = "echo 9";	startOfUnprocessedChars=2
+splitInputInCommands->COMMANDS[0] = "echo 8"
+OUTPUT SPLIT INPUT IN COMMANDS = '"echo 9"'
+
+OUTPUT MAIN = '"echo 9"'
+finalizó el hijo con PID = 29257
+--------------------------------------ROUND 5
+bufferAcumulativo='"echo 9"
+"echo 10"
+"echo'; buffer='
+"echo 10"
+"echo'
+	Processing INPUT: '"echo 9"
+"echo 10"
+"echo';strlen=24
+----------------------------------
+COMMAND = '"echo 9"
+"echo 10"
+"echo'
+		COMMAND ANTES DEL NULLL = '"echo 9"'		COMMAND DESPUÉS DEL NULL = '"echo 9"'COMMAND = '"echo 10"
+"echo'
+		COMMAND ANTES DEL NULLL = '"echo 10"'		COMMAND DESPUÉS DEL NULL = '"echo 10"'	RESTANTE = '"echo'
+	RESTANTE = '"echo'
+endInputPosition 24; fin de input = ;COMMANDS NO = 2; commands[0]='"echo 9"'
+INPUT before memcpy: '"echo 9"
+"echo 10"
+"echo'; input length = 24; relative start position = 19
+remainingStr = "echo
+INPUT after memcpy: '"echo'
+	RemainginStr = "echo;	startOfUnprocessedChars=2
+splitInputInCommands->COMMANDS[0] = "echo 9"
+splitInputInCommands->COMMANDS[1] = "echo 10"
+OUTPUT SPLIT INPUT IN COMMANDS = '"echo'
+	MAIN -> COMMANDS[9] = "echo 10"; 
+OUTPUT MAIN = '"echo'
+EXECUTING command 9: "echo 9"
+ARGSV = 3
+	"echo; 9"; (null); 
+before memcpy: '"echo 8"
+"echo 9"'; input length = 17; relative start position = 9
+remainingStr = "echo 9"
+INPUT after memcpy: '"echo 9"'
+	RemainginStr = "echo 9";	startOfUnprocessedChars=2
+splitInputInCommands->COMMANDS[0] = "echo 8"
+OUTPUT SPLIT INPUT IN COMMANDS = '"echo 9"'
+
+OUTPUT MAIN = '"echo 9"'
+finalizó el hijo con PID = 29257
+--------------------------------------ROUND 5
+bufferAcumulativo='"echo 9"
+"echo 10"
+"echo'; buffer='
+"echo 10"
+"echo'
+	Processing INPUT: '"echo 9"
+"echo 10"
+"echo';strlen=24
+----------------------------------
+COMMAND = '"echo 9"
+"echo 10"
+"echo'
+		COMMAND ANTES DEL NULLL = '"echo 9"'		COMMAND DESPUÉS DEL NULL = '"echo 9"'COMMAND = '"echo 10"
+"echo'
+		COMMAND ANTES DEL NULLL = '"echo 10"'		COMMAND DESPUÉS DEL NULL = '"echo 10"'	RESTANTE = '"echo'
+	RESTANTE = '"echo'
+endInputPosition 24; fin de input = ;COMMANDS NO = 2; commands[0]='"echo 9"'
+INPUT before memcpy: '"echo 9"
+"echo 10"
+"echo'; input length = 24; relative start position = 19
+remainingStr = "echo
+INPUT after memcpy: '"echo'
+	RemainginStr = "echo;	startOfUnprocessedChars=2
+splitInputInCommands->COMMANDS[0] = "echo 9"
+splitInputInCommands->COMMANDS[1] = "echo 10"
+OUTPUT SPLIT INPUT IN COMMANDS = '"echo'
+	MAIN -> COMMANDS[9] = "echo 10"; 
+OUTPUT MAIN = '"echo'
+finalizó el hijo con PID = 29258
+EXECUTING command 10: "echo 10"
+ARGSV = 3
+	"echo; 10"; (null); 
+before memcpy: '"echo 8"
+"echo 9"'; input length = 17; relative start position = 9
+remainingStr = "echo 9"
+INPUT after memcpy: '"echo 9"'
+	RemainginStr = "echo 9";	startOfUnprocessedChars=2
+splitInputInCommands->COMMANDS[0] = "echo 8"
+OUTPUT SPLIT INPUT IN COMMANDS = '"echo 9"'
+
+OUTPUT MAIN = '"echo 9"'
+finalizó el hijo con PID = 29257
+--------------------------------------ROUND 5
+bufferAcumulativo='"echo 9"
+"echo 10"
+"echo'; buffer='
+"echo 10"
+"echo'
+	Processing INPUT: '"echo 9"
+"echo 10"
+"echo';strlen=24
+----------------------------------
+COMMAND = '"echo 9"
+"echo 10"
+"echo'
+		COMMAND ANTES DEL NULLL = '"echo 9"'		COMMAND DESPUÉS DEL NULL = '"echo 9"'COMMAND = '"echo 10"
+"echo'
+		COMMAND ANTES DEL NULLL = '"echo 10"'		COMMAND DESPUÉS DEL NULL = '"echo 10"'	RESTANTE = '"echo'
+	RESTANTE = '"echo'
+endInputPosition 24; fin de input = ;COMMANDS NO = 2; commands[0]='"echo 9"'
+INPUT before memcpy: '"echo 9"
+"echo 10"
+"echo'; input length = 24; relative start position = 19
+remainingStr = "echo
+INPUT after memcpy: '"echo'
+	RemainginStr = "echo;	startOfUnprocessedChars=2
+splitInputInCommands->COMMANDS[0] = "echo 9"
+splitInputInCommands->COMMANDS[1] = "echo 10"
+OUTPUT SPLIT INPUT IN COMMANDS = '"echo'
+	MAIN -> COMMANDS[9] = "echo 10"; 
+OUTPUT MAIN = '"echo'
+finalizó el hijo con PID = 29258
+finalizó el hijo con PID = 29259
+--------------------------------------ROUND 6
+bufferAcumulativo='"echo 11"
+"echo 12"
+"'; buffer=' 11"
+"echo 12"
+"'
+	Processing INPUT: '"echo 11"
+"echo 12"
+"';strlen=21
+----------------------------------
+COMMAND = '"echo 11"
+"echo 12"
+"'
+		COMMAND ANTES DEL NULLL = '"echo 11"'		COMMAND DESPUÉS DEL NULL = '"echo 11"'COMMAND = '"echo 12"
+"'
+		COMMAND ANTES DEL NULLL = '"echo 12"'		COMMAND DESPUÉS DEL NULL = '"echo 12"'	RESTANTE = '"'
+	RESTANTE = '"'
+endInputPosition 21; fin de input = ;COMMANDS NO = 2; commands[0]='"echo 11"'
+INPUT before memcpy: '"echo 11"
+"echo 12"
+"'; input length = 21; relative start position = 20
+remainingStr = "
+INPUT after memcpy: '"'
+	RemainginStr = ";	startOfUnprocessedChars=2
+splitInputInCommands->COMMANDS[0] = "echo 11"
+splitInputInCommands->COMMANDS[1] = "echo 12"
+OUTPUT SPLIT INPUT IN COMMANDS = '"'
+	MAIN -> COMMANDS[11] = "echo 12"; 
+OUTPUT MAIN = '"'
+EXECUTING command 11: "echo 11"
+ARGSV = 3
+	"echo; 11"; (null); 
+before memcpy: '"echo 8"
+"echo 9"'; input length = 17; relative start position = 9
+remainingStr = "echo 9"
+INPUT after memcpy: '"echo 9"'
+	RemainginStr = "echo 9";	startOfUnprocessedChars=2
+splitInputInCommands->COMMANDS[0] = "echo 8"
+OUTPUT SPLIT INPUT IN COMMANDS = '"echo 9"'
+
+OUTPUT MAIN = '"echo 9"'
+finalizó el hijo con PID = 29257
+--------------------------------------ROUND 5
+bufferAcumulativo='"echo 9"
+"echo 10"
+"echo'; buffer='
+"echo 10"
+"echo'
+	Processing INPUT: '"echo 9"
+"echo 10"
+"echo';strlen=24
+----------------------------------
+COMMAND = '"echo 9"
+"echo 10"
+"echo'
+		COMMAND ANTES DEL NULLL = '"echo 9"'		COMMAND DESPUÉS DEL NULL = '"echo 9"'COMMAND = '"echo 10"
+"echo'
+		COMMAND ANTES DEL NULLL = '"echo 10"'		COMMAND DESPUÉS DEL NULL = '"echo 10"'	RESTANTE = '"echo'
+	RESTANTE = '"echo'
+endInputPosition 24; fin de input = ;COMMANDS NO = 2; commands[0]='"echo 9"'
+INPUT before memcpy: '"echo 9"
+"echo 10"
+"echo'; input length = 24; relative start position = 19
+remainingStr = "echo
+INPUT after memcpy: '"echo'
+	RemainginStr = "echo;	startOfUnprocessedChars=2
+splitInputInCommands->COMMANDS[0] = "echo 9"
+splitInputInCommands->COMMANDS[1] = "echo 10"
+OUTPUT SPLIT INPUT IN COMMANDS = '"echo'
+	MAIN -> COMMANDS[9] = "echo 10"; 
+OUTPUT MAIN = '"echo'
+finalizó el hijo con PID = 29258
+finalizó el hijo con PID = 29259
+--------------------------------------ROUND 6
+bufferAcumulativo='"echo 11"
+"echo 12"
+"'; buffer=' 11"
+"echo 12"
+"'
+	Processing INPUT: '"echo 11"
+"echo 12"
+"';strlen=21
+----------------------------------
+COMMAND = '"echo 11"
+"echo 12"
+"'
+		COMMAND ANTES DEL NULLL = '"echo 11"'		COMMAND DESPUÉS DEL NULL = '"echo 11"'COMMAND = '"echo 12"
+"'
+		COMMAND ANTES DEL NULLL = '"echo 12"'		COMMAND DESPUÉS DEL NULL = '"echo 12"'	RESTANTE = '"'
+	RESTANTE = '"'
+endInputPosition 21; fin de input = ;COMMANDS NO = 2; commands[0]='"echo 11"'
+INPUT before memcpy: '"echo 11"
+"echo 12"
+"'; input length = 21; relative start position = 20
+remainingStr = "
+INPUT after memcpy: '"'
+	RemainginStr = ";	startOfUnprocessedChars=2
+splitInputInCommands->COMMANDS[0] = "echo 11"
+splitInputInCommands->COMMANDS[1] = "echo 12"
+OUTPUT SPLIT INPUT IN COMMANDS = '"'
+	MAIN -> COMMANDS[11] = "echo 12"; 
+OUTPUT MAIN = '"'
+finalizó el hijo con PID = 29260
+EXECUTING command 12: "echo 12"
+ARGSV = 3
+	"echo; 12"; (null); 
+before memcpy: '"echo 8"
+"echo 9"'; input length = 17; relative start position = 9
+remainingStr = "echo 9"
+INPUT after memcpy: '"echo 9"'
+	RemainginStr = "echo 9";	startOfUnprocessedChars=2
+splitInputInCommands->COMMANDS[0] = "echo 8"
+OUTPUT SPLIT INPUT IN COMMANDS = '"echo 9"'
+
+OUTPUT MAIN = '"echo 9"'
+finalizó el hijo con PID = 29257
+--------------------------------------ROUND 5
+bufferAcumulativo='"echo 9"
+"echo 10"
+"echo'; buffer='
+"echo 10"
+"echo'
+	Processing INPUT: '"echo 9"
+"echo 10"
+"echo';strlen=24
+----------------------------------
+COMMAND = '"echo 9"
+"echo 10"
+"echo'
+		COMMAND ANTES DEL NULLL = '"echo 9"'		COMMAND DESPUÉS DEL NULL = '"echo 9"'COMMAND = '"echo 10"
+"echo'
+		COMMAND ANTES DEL NULLL = '"echo 10"'		COMMAND DESPUÉS DEL NULL = '"echo 10"'	RESTANTE = '"echo'
+	RESTANTE = '"echo'
+endInputPosition 24; fin de input = ;COMMANDS NO = 2; commands[0]='"echo 9"'
+INPUT before memcpy: '"echo 9"
+"echo 10"
+"echo'; input length = 24; relative start position = 19
+remainingStr = "echo
+INPUT after memcpy: '"echo'
+	RemainginStr = "echo;	startOfUnprocessedChars=2
+splitInputInCommands->COMMANDS[0] = "echo 9"
+splitInputInCommands->COMMANDS[1] = "echo 10"
+OUTPUT SPLIT INPUT IN COMMANDS = '"echo'
+	MAIN -> COMMANDS[9] = "echo 10"; 
+OUTPUT MAIN = '"echo'
+finalizó el hijo con PID = 29258
+finalizó el hijo con PID = 29259
+--------------------------------------ROUND 6
+bufferAcumulativo='"echo 11"
+"echo 12"
+"'; buffer=' 11"
+"echo 12"
+"'
+	Processing INPUT: '"echo 11"
+"echo 12"
+"';strlen=21
+----------------------------------
+COMMAND = '"echo 11"
+"echo 12"
+"'
+		COMMAND ANTES DEL NULLL = '"echo 11"'		COMMAND DESPUÉS DEL NULL = '"echo 11"'COMMAND = '"echo 12"
+"'
+		COMMAND ANTES DEL NULLL = '"echo 12"'		COMMAND DESPUÉS DEL NULL = '"echo 12"'	RESTANTE = '"'
+	RESTANTE = '"'
+endInputPosition 21; fin de input = ;COMMANDS NO = 2; commands[0]='"echo 11"'
+INPUT before memcpy: '"echo 11"
+"echo 12"
+"'; input length = 21; relative start position = 20
+remainingStr = "
+INPUT after memcpy: '"'
+	RemainginStr = ";	startOfUnprocessedChars=2
+splitInputInCommands->COMMANDS[0] = "echo 11"
+splitInputInCommands->COMMANDS[1] = "echo 12"
+OUTPUT SPLIT INPUT IN COMMANDS = '"'
+	MAIN -> COMMANDS[11] = "echo 12"; 
+OUTPUT MAIN = '"'
+finalizó el hijo con PID = 29260
+finalizó el hijo con PID = 29261
+--------------------------------------ROUND 7
+bufferAcumulativo='"echo 13"
+"echo 1'; buffer='echo 13"
+"echo 1'
+	Processing INPUT: '"echo 13"
+"echo 1';strlen=17
+----------------------------------
+COMMAND = '"echo 13"
+"echo 1'
+		COMMAND ANTES DEL NULLL = '"echo 13"'		COMMAND DESPUÉS DEL NULL = '"echo 13"'	RESTANTE = '"echo 1'
+	RESTANTE = '"echo 1'
+endInputPosition 17; fin de input = ;COMMANDS NO = 1; commands[0]='"echo 13"'
+INPUT before memcpy: '"echo 13"
+"echo 1'; input length = 17; relative start position = 10
+remainingStr = "echo 1
+INPUT after memcpy: '"echo 1'
+	RemainginStr = "echo 1;	startOfUnprocessedChars=2
+splitInputInCommands->COMMANDS[0] = "echo 13"
+OUTPUT SPLIT INPUT IN COMMANDS = '"echo 1'
+
+OUTPUT MAIN = '"echo 1'
+EXECUTING command 13: "echo 13"
+ARGSV = 3
+	"echo; 13"; (null); 
+before memcpy: '"echo 8"
+"echo 9"'; input length = 17; relative start position = 9
+remainingStr = "echo 9"
+INPUT after memcpy: '"echo 9"'
+	RemainginStr = "echo 9";	startOfUnprocessedChars=2
+splitInputInCommands->COMMANDS[0] = "echo 8"
+OUTPUT SPLIT INPUT IN COMMANDS = '"echo 9"'
+
+OUTPUT MAIN = '"echo 9"'
+finalizó el hijo con PID = 29257
+--------------------------------------ROUND 5
+bufferAcumulativo='"echo 9"
+"echo 10"
+"echo'; buffer='
+"echo 10"
+"echo'
+	Processing INPUT: '"echo 9"
+"echo 10"
+"echo';strlen=24
+----------------------------------
+COMMAND = '"echo 9"
+"echo 10"
+"echo'
+		COMMAND ANTES DEL NULLL = '"echo 9"'		COMMAND DESPUÉS DEL NULL = '"echo 9"'COMMAND = '"echo 10"
+"echo'
+		COMMAND ANTES DEL NULLL = '"echo 10"'		COMMAND DESPUÉS DEL NULL = '"echo 10"'	RESTANTE = '"echo'
+	RESTANTE = '"echo'
+endInputPosition 24; fin de input = ;COMMANDS NO = 2; commands[0]='"echo 9"'
+INPUT before memcpy: '"echo 9"
+"echo 10"
+"echo'; input length = 24; relative start position = 19
+remainingStr = "echo
+INPUT after memcpy: '"echo'
+	RemainginStr = "echo;	startOfUnprocessedChars=2
+splitInputInCommands->COMMANDS[0] = "echo 9"
+splitInputInCommands->COMMANDS[1] = "echo 10"
+OUTPUT SPLIT INPUT IN COMMANDS = '"echo'
+	MAIN -> COMMANDS[9] = "echo 10"; 
+OUTPUT MAIN = '"echo'
+finalizó el hijo con PID = 29258
+finalizó el hijo con PID = 29259
+--------------------------------------ROUND 6
+bufferAcumulativo='"echo 11"
+"echo 12"
+"'; buffer=' 11"
+"echo 12"
+"'
+	Processing INPUT: '"echo 11"
+"echo 12"
+"';strlen=21
+----------------------------------
+COMMAND = '"echo 11"
+"echo 12"
+"'
+		COMMAND ANTES DEL NULLL = '"echo 11"'		COMMAND DESPUÉS DEL NULL = '"echo 11"'COMMAND = '"echo 12"
+"'
+		COMMAND ANTES DEL NULLL = '"echo 12"'		COMMAND DESPUÉS DEL NULL = '"echo 12"'	RESTANTE = '"'
+	RESTANTE = '"'
+endInputPosition 21; fin de input = ;COMMANDS NO = 2; commands[0]='"echo 11"'
+INPUT before memcpy: '"echo 11"
+"echo 12"
+"'; input length = 21; relative start position = 20
+remainingStr = "
+INPUT after memcpy: '"'
+	RemainginStr = ";	startOfUnprocessedChars=2
+splitInputInCommands->COMMANDS[0] = "echo 11"
+splitInputInCommands->COMMANDS[1] = "echo 12"
+OUTPUT SPLIT INPUT IN COMMANDS = '"'
+	MAIN -> COMMANDS[11] = "echo 12"; 
+OUTPUT MAIN = '"'
+finalizó el hijo con PID = 29260
+finalizó el hijo con PID = 29261
+--------------------------------------ROUND 7
+bufferAcumulativo='"echo 13"
+"echo 1'; buffer='echo 13"
+"echo 1'
+	Processing INPUT: '"echo 13"
+"echo 1';strlen=17
+----------------------------------
+COMMAND = '"echo 13"
+"echo 1'
+		COMMAND ANTES DEL NULLL = '"echo 13"'		COMMAND DESPUÉS DEL NULL = '"echo 13"'	RESTANTE = '"echo 1'
+	RESTANTE = '"echo 1'
+endInputPosition 17; fin de input = ;COMMANDS NO = 1; commands[0]='"echo 13"'
+INPUT before memcpy: '"echo 13"
+"echo 1'; input length = 17; relative start position = 10
+remainingStr = "echo 1
+INPUT after memcpy: '"echo 1'
+	RemainginStr = "echo 1;	startOfUnprocessedChars=2
+splitInputInCommands->COMMANDS[0] = "echo 13"
+OUTPUT SPLIT INPUT IN COMMANDS = '"echo 1'
+
+OUTPUT MAIN = '"echo 1'
+finalizó el hijo con PID = 29262
+--------------------------------------ROUND 8

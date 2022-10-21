@@ -1,7 +1,6 @@
 ps
 echo luego
-ls -l -a 
-echo adiós
-echo hola de nuevo
-
-echo BYE!
+ls -la
+ls
+echo BYE
+echo BYE
